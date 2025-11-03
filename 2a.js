@@ -8,16 +8,18 @@ const server = http.createServer(function (request, response) {
   var answer = '';  //設置回應內容
 
   // 請寫 switch完成各個收到不同的請求以及輸出不同的回應字串 (使用 switch)
-  switch (url) {
-    case '/':
-      answer = 'index.html 輸出部分';
-      break;
-    case '/calculator':
-      answer = 'index2.html 輸出部分';
-      break;
-    default:
-      answer = 'error.html 輸出部分';
-      break;
+  switch (url) { //根據網址列不同的請求路徑，使用switch判斷設定不同的回應內容
+    case '/': //當請求為「/」
+      answer = 'index.html 輸出部分'; //設定回應內容為字串'index.html 輸出部分'
+      break; //結束本次case
+
+    case '/calculator': //當請求為「/calculator」
+      answer = 'index2.html 輸出部分'; //設定回應內容為字串'index2.html 輸出部分'
+      break; //結束本次case
+
+    default: //如果請求皆非,則執行default
+      answer = 'error.html 輸出部分'; //設定回應內容為字串'error.html 輸出部分'
+      break; //結束本次case
     }
 
 

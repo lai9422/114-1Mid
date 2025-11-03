@@ -82,6 +82,22 @@ Ans:
 
 <!--  請撰寫時，第一句話再寫一次  -->
 該位工程師接了一個案子
+```js
+// 請寫 switch完成各個收到不同的請求以及輸出不同的回應字串 (使用 switch)
+  switch (url) { //根據網址列不同的請求路徑，使用switch判斷設定不同的回應內容
+    case '/': //當請求為「/」
+      answer = 'index.html 輸出部分'; //設定回應內容為字串'index.html 輸出部分'
+      break; //結束本次case
+
+    case '/calculator': //當請求為「/calculator」
+      answer = 'index2.html 輸出部分'; //設定回應內容為字串'index2.html 輸出部分'
+      break; //結束本次case
+
+    default: //如果請求皆非,則執行default
+      answer = 'error.html 輸出部分'; //設定回應內容為字串'error.html 輸出部分'
+      break; //結束本次case
+    }
+```
 
 
 2. b.
@@ -90,6 +106,23 @@ Ans:
 
 <!--  請撰寫時，第一句話再寫一次  -->
 由於node js的路由可以如a小題一樣只輸出文字
+```js
+// Switch根據不同路由要寫的部分
+  //需先安裝ejs模組：npm install ejs
+  switch (req.url) { //根據網址列不同的請求路徑，使用switch判斷設定不同的回應內容
+    case '/': //當請求為「/」
+      filePath = '/index.ejs'; //設定回應內容為讀取檔案'/index.ejs'
+      break; //結束本次case
+    case '/calculator': //當請求為「/calculator」
+      filePath = '/index2.ejs'; //設定回應內容為讀取檔案'/index2.ejs'
+      break; //結束本次case
+    }
+
+  // 判斷是否為靜態資源請求（CSS、JS、PNG）,如果其中之一符合,則執行下列程式
+  if (req.url.endsWith('.css') || req.url.endsWith('.js') || req.url.endsWith('.png')) { 
+    fileOtherFile = req.url; //設定回應內容為請求的路徑
+}
+```
 
 2. c.
 
@@ -97,7 +130,23 @@ Ans:
 
 <!--  請撰寫時，第一句話和最後一句再寫一次  -->
 同b,當請求不為「/」 置換成讀取「index3.ejs」檔案中的畫面
+```js
+// Switch根據不同路由要寫的部分
+  //需先安裝ejs模組：npm install ejs
+  switch (req.url) { //根據網址列不同的請求路徑，使用switch判斷設定不同的回應內容
+    case '/': //當請求為「/」
+      filePath = '/index.ejs'; //設定回應內容為讀取檔案'/index.ejs'
+      break; //結束本次case
+    case '/calculator': //當請求為「/calculator」
+      filePath = '/index2.ejs'; //設定回應內容為讀取檔案'/index2.ejs'
+      break; //結束本次case
+    }
 
+  // 判斷是否為靜態資源請求（CSS、JS、PNG）,如果其中之一符合,則執行下列程式
+  if (req.url.endsWith('.css') || req.url.endsWith('.js') || req.url.endsWith('.png')) { 
+    fileOtherFile = req.url; //設定回應內容為請求的路徑
+}
+```
 
 2. d.
 

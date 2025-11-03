@@ -43,16 +43,19 @@ http.createServer((req, res) => {
   let fileOtherFile = '';
 
   // Switch根據不同路由要寫的部分
-  switch (req.url) {
-    case '/':
-      filePath = '/index.ejs';
-      break;
-    case '/calculator':
-      filePath = '/index2.ejs';
-      break;
+  //需先安裝ejs模組：npm install ejs
+  switch (req.url) { //根據網址列不同的請求路徑，使用switch判斷設定不同的回應內容
+    case '/': //當請求為「/」
+      filePath = '/index.ejs'; //設定回應內容為讀取檔案'/index.ejs'
+      break; //結束本次case
+    case '/calculator': //當請求為「/calculator」
+      filePath = '/index2.ejs'; //設定回應內容為讀取檔案'/index2.ejs'
+      break; //結束本次case
     }
-  if (req.url.endsWith('.css') || req.url.endsWith('.js') || req.url.endsWith('.png')) {
-    fileOtherFile = req.url;
+
+  // 判斷是否為靜態資源請求（CSS、JS、PNG）,如果其中之一符合,則執行下列程式
+  if (req.url.endsWith('.css') || req.url.endsWith('.js') || req.url.endsWith('.png')) { 
+    fileOtherFile = req.url; //設定回應內容為請求的路徑
 }
 
 
@@ -197,19 +200,20 @@ http.createServer((req, res) => {
         //res.end('404 - 找不到文件：');
 
 
-        const error404File = './index3.ejs';
+        const error404File = './index3.ejs'; //宣告一個變數將404 錯誤頁面的 EJS 模板路徑指定給他
 
-        fs.readFile(error404File, 'utf8', (err404, content404) => {
+        fs.readFile(error404File, 'utf8', (err404, content404) => { //讀取404 錯誤頁面的 EJS 模板文件,編碼為utf8(避免中文亂碼),
+        //  err404為錯誤物件,content404為讀取到的文件內容
           
-          res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
-          if (err404) {
-            console.error('讀取失敗:', err404);
-            res.end('404 Not Found');
-          } else {
+          res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' }); //設定 HTTP 狀態碼 404（找不到資源）
+          if (err404) { //檢查404 錯誤頁面的 EJS 模板文件是否讀取失敗
+            console.error('讀取失敗:', err404); //輸出錯誤訊息
+            res.end('404 Not Found'); //向客戶端發送404錯誤訊息
+          } else { //404 錯誤頁面的 EJS 模板文件讀取成功
 
-            res.end(content404);
-          }
-        });
+            res.end(content404); //將404 錯誤頁面的內容發送給客戶端
+          } 
+        }); 
 
       } else {
         // ------------------------------------------
