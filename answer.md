@@ -30,6 +30,7 @@ Ans:
  
 
 <br>
+
 1. b.
 
 Ans:
@@ -124,6 +125,7 @@ Ans:
 答案三
 ![alt text](image-3.png)
 <br>
+
 2. b.
 
 Ans:
@@ -153,7 +155,7 @@ Ans:
 答案二
 ![alt text](image-5.png)
 
-1. c.
+2. c.
 
 Ans:
 
