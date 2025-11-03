@@ -43,7 +43,17 @@ http.createServer((req, res) => {
   let fileOtherFile = '';
 
   // Switch根據不同路由要寫的部分
-
+  switch (req.url) {
+    case '/':
+      filePath = '/index.ejs';
+      break;
+    case '/calculator':
+      filePath = '/index2.ejs';
+      break;
+    }
+  if (req.url.endsWith('.css') || req.url.endsWith('.js') || req.url.endsWith('.png')) {
+    fileOtherFile = req.url;
+}
 
 
 
@@ -181,10 +191,25 @@ http.createServer((req, res) => {
         // 不直接回傳錯誤訊息，而是顯示友善的 404 錯誤頁面（index3.ejs）
 
         // 設定 HTTP 狀態碼 404（找不到資源）
-        res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+        //res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
 
         // 向客戶端發送 404 錯誤訊息
-        res.end('404 - 找不到文件：');
+        //res.end('404 - 找不到文件：');
+
+
+        const error404File = './index3.ejs';
+
+        fs.readFile(error404File, 'utf8', (err404, content404) => {
+          
+          res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+          if (err404) {
+            console.error('讀取失敗:', err404);
+            res.end('404 Not Found');
+          } else {
+
+            res.end(content404);
+          }
+        });
 
       } else {
         // ------------------------------------------

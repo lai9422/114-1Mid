@@ -21,7 +21,16 @@
  *   輸出: ["mouse"]
  */
 function getLowStock(products) {
- 
+  var newProducts = [];
+    
+    for (var i = 0; i < products.length; i++) {
+        if (products[i].stock < 10) {
+            newProducts.push(products[i].name);
+        }
+    }
+
+    console.log("庫存少於 10 的項目：",newProducts);
+    return newProducts;
 }
 
 
@@ -43,7 +52,35 @@ function getLowStock(products) {
  *   結果: [{ name: "mouse", stock: 15 }]
  */
 function updateStock(products, updates) {
+  const updatedProducts = [];
+
+  for (let i = 0; i < products.length; i++) {
+    const product = products[i];
+    const productName = product.name;
+    let newStockValue;
+    
+    if (updates.hasOwnProperty(productName)) {
+      newStockValue = updates[productName];
+    } else {
+      newStockValue = product.stock;
+    }
+    
+    const newProduct = {
+      name: productName,
+      stock: newStockValue
+    };
+    
+    updatedProducts.push(newProduct);
+  }
+
+  console.log("--- 庫存更新結果 ---");
+  for (let i = 0; i < updatedProducts.length; i++) {
+    const product = updatedProducts[i];
+    console.log(`${product.name} 的庫存： ${product.stock}`);
+  }
+  console.log("----------------------");
   
+  return updatedProducts;
 }
 
 
