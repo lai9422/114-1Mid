@@ -32,7 +32,7 @@ function getLowStock(products) {
     console.log("庫存少於 10 的項目：",newProducts); // 印出字串"庫存少於 10 的項目："以及newProducts陣列內容
     return newProducts; //回傳newProducts陣列
 }
-
+ 
 
 // ==========================================
 //  批次更新商品庫存

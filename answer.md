@@ -10,11 +10,26 @@
 
 1. a.
 
-Ans: 
+Ans:
+<br>
+(1) 
+1. 陣列宣告
+   - 將相同資料型態整合一起,稱為`物件`,於記憶體當中使用`連續空間`
+   - 索引值從`0`開始
+   - 陣列中個別資料,稱為`元素`
+2. const常數宣告
+   - const使一個不可變動的關鍵字,例如圓周率=3.14是不可更改的事實,此題用於資料庫存的儲存,亦不能更動
+   - 在執行時,程式編譯器會檢查,如果偵測到修改將會報錯
+   - 在宣告的同時就必須給值,否則將會發生錯誤
 
+<br>
+(2)
+ 
+ ## 從上面敘述可知以下事情
+ - 儲存庫存量不可更改的資料,宣告關鍵字應使用`const`,由於陣列是使用連續的空間儲存資料,因此我們在做任何資料調閱行為都可以用`for迴圈+陣列索引值`快速完成。
+ 
 
-
-
+<br>
 1. b.
 
 Ans:
@@ -35,6 +50,7 @@ function getLowStock(products) {
     return newProducts; //回傳newProducts陣列
 }
 ```
+![alt text]({5A811E3C-A363-4431-91FB-0CD6E8F48DEA}.png)
 
 1. c.
 
@@ -76,6 +92,7 @@ function updateStock(products, updates) {
   return updatedProducts; //回傳更新後的商品陣列
 }
 ```
+![alt text](image.png)
 2. a.
 
 Ans:
@@ -98,8 +115,12 @@ Ans:
       break; //結束本次case
     }
 ```
-
-
+答案一
+![alt text](image-1.png)
+答案二
+![alt text](image-2.png)
+答案三
+![alt text](image-3.png)
 2. b.
 
 Ans:
@@ -124,29 +145,35 @@ Ans:
 }
 ```
 
-2. c.
+答案一
+![alt text](image-4.png)
+答案二
+![alt text](image-5.png)
+
+1. c.
 
 Ans:
 
 <!--  請撰寫時，第一句話和最後一句再寫一次  -->
 同b,當請求不為「/」 置換成讀取「index3.ejs」檔案中的畫面
 ```js
-// Switch根據不同路由要寫的部分
-  //需先安裝ejs模組：npm install ejs
-  switch (req.url) { //根據網址列不同的請求路徑，使用switch判斷設定不同的回應內容
-    case '/': //當請求為「/」
-      filePath = '/index.ejs'; //設定回應內容為讀取檔案'/index.ejs'
-      break; //結束本次case
-    case '/calculator': //當請求為「/calculator」
-      filePath = '/index2.ejs'; //設定回應內容為讀取檔案'/index2.ejs'
-      break; //結束本次case
-    }
+  const error404File = './index3.ejs'; //宣告一個變數將404 錯誤頁面的 EJS 模板路徑指定給他
 
-  // 判斷是否為靜態資源請求（CSS、JS、PNG）,如果其中之一符合,則執行下列程式
-  if (req.url.endsWith('.css') || req.url.endsWith('.js') || req.url.endsWith('.png')) { 
-    fileOtherFile = req.url; //設定回應內容為請求的路徑
-}
+        fs.readFile(error404File, 'utf8', (err404, content404) => { //讀取404 錯誤頁面的 EJS 模板文件,編碼為utf8(避免中文亂碼),
+        //  err404為錯誤物件,content404為讀取到的文件內容
+          
+          res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' }); //設定 HTTP 狀態碼 404（找不到資源）
+          if (err404) { //檢查404 錯誤頁面的 EJS 模板文件是否讀取失敗
+            console.error('讀取失敗:', err404); //輸出錯誤訊息
+            res.end('404 Not Found'); //向客戶端發送404錯誤訊息
+          } else { //404 錯誤頁面的 EJS 模板文件讀取成功
+
+            res.end(content404); //將404 錯誤頁面的內容發送給客戶端
+          } 
+        });
 ```
+
+![alt text](image-6.png)
 
 2. d.
 
