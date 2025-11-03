@@ -21,16 +21,16 @@
  *   輸出: ["mouse"]
  */
 function getLowStock(products) {
-  var newProducts = [];
+  var newProducts = []; //宣告一個陣列用來存放庫存量少於10的商品名稱
     
-    for (var i = 0; i < products.length; i++) {
-        if (products[i].stock < 10) {
-            newProducts.push(products[i].name);
+    for (var i = 0; i < products.length; i++) { //使用for迴圈查看所有商品
+        if (products[i].stock < 10) { //假如資料函式中的商品數量少於10,則執行下列程式
+
+            newProducts.push(products[i].name); //將商品庫存少於10的商品名稱使用push()方法新增至新的陣列newProducts中
         }
     }
-
-    console.log("庫存少於 10 的項目：",newProducts);
-    return newProducts;
+    console.log("庫存少於 10 的項目：",newProducts); // 印出字串"庫存少於 10 的項目："以及newProducts陣列內容
+    return newProducts; //回傳newProducts陣列
 }
 
 
@@ -52,35 +52,36 @@ function getLowStock(products) {
  *   結果: [{ name: "mouse", stock: 15 }]
  */
 function updateStock(products, updates) {
-  const updatedProducts = [];
+  const updatedProducts = []; //需告一個新的陣列用於存放更新資料
 
-  for (let i = 0; i < products.length; i++) {
-    const product = products[i];
-    const productName = product.name;
-    let newStockValue;
+  for (let i = 0; i < products.length; i++) { //使用for迴圈查看所有商品
+    const product = products[i]; //將目前商品存放在product變數中
+    const productName = product.name; //將目前商品名稱存放在productName變數中
+    let newStockValue; //宣告一個變數用於存放更新後的庫存量
     
-    if (updates.hasOwnProperty(productName)) {
-      newStockValue = updates[productName];
-    } else {
-      newStockValue = product.stock;
+    // 檢查是否有需要更新的庫存量
+    if (updates.hasOwnProperty(productName)) { //檢查updates物件中是否有目前商品名稱的屬性
+      newStockValue = updates[productName]; //若有則將更新後的庫存量存放在newStockValue變數中
+    } else { 
+      newStockValue = product.stock; //若無則將原本的庫存量存放在newStockValue變數中
     }
     
-    const newProduct = {
-      name: productName,
-      stock: newStockValue
+    const newProduct = { //建立一個新的物件用於存放更新後的商品資料
+      name: productName, //商品名稱不變
+      stock: newStockValue //庫存量使用更新後的值
     };
     
-    updatedProducts.push(newProduct);
+    updatedProducts.push(newProduct); //將新的商品物件新增至updatedProducts陣列中
   }
 
-  console.log("--- 庫存更新結果 ---");
-  for (let i = 0; i < updatedProducts.length; i++) {
-    const product = updatedProducts[i];
-    console.log(`${product.name} 的庫存： ${product.stock}`);
+  console.log("--- 庫存更新結果 ---"); //印出字串"--- 庫存更新結果 ---"
+  for (let i = 0; i < updatedProducts.length; i++) { //使用for迴圈查看所有更新後的商品
+    const product = updatedProducts[i]; //將目前商品存放在product變數中
+    console.log(`${product.name} 的庫存： ${product.stock}`); //印出商品名稱以及更新後的庫存量
   }
-  console.log("----------------------");
+  console.log("----------------------");//印出字串"----------------------"
   
-  return updatedProducts;
+  return updatedProducts; //回傳更新後的商品陣列
 }
 
 
