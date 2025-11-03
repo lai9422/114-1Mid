@@ -35,7 +35,7 @@ Ans:
 Ans:
 
 <!-- 請撰寫時，最後一句話再寫一次 -->
-其輸出結果需以下面格式呈現
+其輸出結果需以下面格式顯示
 ```js
 function getLowStock(products) {
   var newProducts = []; //宣告一個陣列用來存放庫存量少於10的商品名稱
@@ -68,7 +68,7 @@ function updateStock(products, updates) {
     let newStockValue; //宣告一個變數用於存放更新後的庫存量
     
     // 檢查是否有需要更新的庫存量
-    if (updates.hasOwnProperty(productName)) { //檢查updates物件中是否有目前商品名稱的屬性
+    if (updates.hasOwnProperty(productName)) { 
       newStockValue = updates[productName]; //若有則將更新後的庫存量存放在newStockValue變數中
     } else { 
       newStockValue = product.stock; //若無則將原本的庫存量存放在newStockValue變數中
@@ -87,7 +87,7 @@ function updateStock(products, updates) {
     const product = updatedProducts[i]; //將目前商品存放在product變數中
     console.log(`${product.name} 的庫存： ${product.stock}`); //印出商品名稱以及更新後的庫存量
   }
-  console.log("----------------------");//印出字串"----------------------"
+  console.log("----------------------");
   
   return updatedProducts; //回傳更新後的商品陣列
 }
@@ -98,7 +98,7 @@ function updateStock(products, updates) {
 Ans:
 
 <!--  請撰寫時，第一句話再寫一次  -->
-該位工程師接了一個案子
+該位工程師先以2a.js作為檔名
 ```js
 // 請寫 switch完成各個收到不同的請求以及輸出不同的回應字串 (使用 switch)
   switch (url) { //根據網址列不同的請求路徑，使用switch判斷設定不同的回應內容
