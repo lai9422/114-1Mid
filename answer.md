@@ -117,10 +117,13 @@ Ans:
 ```
 答案一
 ![alt text](image-1.png)
+<br>
 答案二
 ![alt text](image-2.png)
+<br>
 答案三
 ![alt text](image-3.png)
+<br>
 2. b.
 
 Ans:
@@ -178,5 +181,21 @@ Ans:
 2. d.
 
 Ans:
-兩次 fs.readFile共出現兩次
 
+兩次
+
+fs用來讀取檔案,其中包含ejs模板(動態頁面)和靜態資源(css、js、image),當伺服器收到請求,根據url決定讀取哪個檔案
+
+1. 讀取ejs
+if (extname === '.ejs')
+filePath根據url路徑選擇
+如果讀檔失敗,回傳500錯誤否則template檔案內容字串,最後再發送給客戶端
+
+
+
+1. else區塊
+靜態文件傳送
+讀取css、js靜態檔案。fileOtherFile 是請求的 URL
+err有值回傳404否則 content 是檔案資料
+
+fs 是伺服器的 "檔案載入器"，沒有它，伺服器無法從資料夾讀頁面或資源，導致網頁空白或樣式失效。程式用非同步讀取，避免伺服器卡住多個請求。
