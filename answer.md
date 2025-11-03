@@ -36,7 +36,7 @@ Ans:
 Ans:
 
 <!-- 請撰寫時，最後一句話再寫一次 -->
-其輸出結果需以下面格式顯示
+這是一個確認商品少於10的函式
 ```js
 function getLowStock(products) {
   var newProducts = []; //宣告一個陣列用來存放庫存量少於10的商品名稱
@@ -51,6 +51,8 @@ function getLowStock(products) {
     return newProducts; //回傳newProducts陣列
 }
 ```
+最後回傳資料
+最後回傳資料
 ![alt text]({5A811E3C-A363-4431-91FB-0CD6E8F48DEA}.png)
 
 1. c.
@@ -58,7 +60,8 @@ function getLowStock(products) {
 Ans:
 
 <!--  請撰寫時，第一句話再寫一次  -->
-承B,請在同一支js檔案中
+這是一個更新商品數量的函式
+這是一個更新商品數量的函式
 ```js
 function updateStock(products, updates) {
   const updatedProducts = []; //需告一個新的陣列用於存放更新資料
@@ -93,13 +96,15 @@ function updateStock(products, updates) {
   return updatedProducts; //回傳更新後的商品陣列
 }
 ```
+最後回傳結果
 ![alt text](image.png)
 2. a.
 
 Ans:
 
 <!--  請撰寫時，第一句話再寫一次  -->
-該位工程師先以2a.js作為檔名
+使用switch判斷應該輸出的字樣
+使用switch判斷應該輸出的字樣
 ```js
 // 請寫 switch完成各個收到不同的請求以及輸出不同的回應字串 (使用 switch)
   switch (url) { //根據網址列不同的請求路徑，使用switch判斷設定不同的回應內容
@@ -116,6 +121,7 @@ Ans:
       break; //結束本次case
     }
 ```
+最後顯示畫面
 答案一
 ![alt text](image-1.png)
 <br>
@@ -131,7 +137,8 @@ Ans:
 Ans:
 
 <!--  請撰寫時，第一句話再寫一次  -->
-由於node js的路由可以如a小題一樣只輸出文字
+使用switch判斷應該輸出的ejs樣式
+使用switch判斷應該輸出的ejs樣式
 ```js
 // Switch根據不同路由要寫的部分
   //需先安裝ejs模組：npm install ejs
@@ -149,18 +156,19 @@ Ans:
     fileOtherFile = req.url; //設定回應內容為請求的路徑
 }
 ```
-
+最後輸出ejs模板
 答案一
 ![alt text](image-4.png)
 答案二
 ![alt text](image-5.png)
 
-2. c.
+1. c.
 
 Ans:
 
 <!--  請撰寫時，第一句話和最後一句再寫一次  -->
-同b,當請求不為「/」 置換成讀取「index3.ejs」檔案中的畫面
+讀取顯示index3.ejs的錯誤畫面
+讀取顯示index3.ejs的錯誤畫面
 ```js
   const error404File = './index3.ejs'; //宣告一個變數將404 錯誤頁面的 EJS 模板路徑指定給他
 
@@ -177,10 +185,11 @@ Ans:
           } 
         });
 ```
-
+最後輸出錯誤畫面
+最後輸出錯誤畫面
 ![alt text](image-6.png)
 
-2. d.
+1. d.
 
 Ans:
 
