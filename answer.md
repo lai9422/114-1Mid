@@ -178,5 +178,5 @@ Ans:
 2. d.
 
 Ans:
-
+兩次 fs.readFile共出現兩次
 
