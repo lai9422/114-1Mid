@@ -37,6 +37,7 @@ Ans:
 
 <!-- 請撰寫時，最後一句話再寫一次 -->
 這是一個確認商品少於10的函式
+<br>
 ```js
 function getLowStock(products) {
   var newProducts = []; //宣告一個陣列用來存放庫存量少於10的商品名稱
@@ -53,6 +54,9 @@ function getLowStock(products) {
 ```
 最後回傳資料
 最後回傳資料
+
+<br>
+
 ![alt text]({5A811E3C-A363-4431-91FB-0CD6E8F48DEA}.png)
 
 1. c.
@@ -62,6 +66,9 @@ Ans:
 <!--  請撰寫時，第一句話再寫一次  -->
 這是一個更新商品數量的函式
 這是一個更新商品數量的函式
+
+<br>
+
 ```js
 function updateStock(products, updates) {
   const updatedProducts = []; //需告一個新的陣列用於存放更新資料
@@ -97,6 +104,9 @@ function updateStock(products, updates) {
 }
 ```
 最後回傳結果
+
+<br>
+
 ![alt text](image.png)
 2. a.
 
@@ -105,6 +115,7 @@ Ans:
 <!--  請撰寫時，第一句話再寫一次  -->
 使用switch判斷應該輸出的字樣
 使用switch判斷應該輸出的字樣
+<br>
 ```js
 // 請寫 switch完成各個收到不同的請求以及輸出不同的回應字串 (使用 switch)
   switch (url) { //根據網址列不同的請求路徑，使用switch判斷設定不同的回應內容
@@ -122,6 +133,9 @@ Ans:
     }
 ```
 最後顯示畫面
+
+<br>
+
 答案一
 ![alt text](image-1.png)
 <br>
@@ -139,6 +153,9 @@ Ans:
 <!--  請撰寫時，第一句話再寫一次  -->
 使用switch判斷應該輸出的ejs樣式
 使用switch判斷應該輸出的ejs樣式
+
+<br>
+
 ```js
 // Switch根據不同路由要寫的部分
   //需先安裝ejs模組：npm install ejs
